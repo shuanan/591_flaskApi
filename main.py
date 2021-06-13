@@ -25,4 +25,5 @@ def findRent():
 
 if __name__ == "__main__":
     #turn false on server
-    app.run(host="0.0.0.0", port="5000", debug=True)
+    # Threaded option to enable multiple instances for multiple user access support
+    app.run(host="0.0.0.0", port="5000", debug=False, threaded=True)
