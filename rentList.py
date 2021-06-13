@@ -76,13 +76,3 @@ def dealJson(request):
     return result
 
 
-dic = {
-    "page":1,
-    "data":{
-        "region":"3",
-        "section":"26,41,39"
-
-    }
-}
-test = dealJson(dic)
-print(test)
