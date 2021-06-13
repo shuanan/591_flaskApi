@@ -9,7 +9,7 @@ CORS(app)
 def index():
     return "This is the Api for 591."
 
-@app.route('/rentList', methods=['POST'])
+@app.route('/rentlist', methods=['POST'])
 def findRent():
     try:
         result = rl.dealJson(request.get_json())
