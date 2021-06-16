@@ -26,7 +26,7 @@ def findRent():
 @app.route('/getsection', methods=['POST'])
 def findsection():
     try:
-        result = sql.getSection(3)
+        result = sql.getSection(request.get_json())
         
     except Exception as e:
         result = {

@@ -11,8 +11,10 @@ db_settings = {
         "charset": "utf8"
     }
 
-def getSection(region):
+def getSection(request):
     try:
+        region = request["region"]
+
         conn = pymysql.connect(**db_settings)
 		
         with conn.cursor() as cursor:
@@ -24,8 +26,8 @@ def getSection(region):
             result = cursor.fetchall()
 
             status ="success"
-            if result == None :
-                status = "fail"
+            if len(result) == 0 :
+                status = "error"
 
             result = {
                 "status":status,
