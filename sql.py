@@ -46,7 +46,7 @@ def getSection(region):
     except Exception as ex:
         print(ex)
 
-def getRegion():
+def getRegion(self):
     try:
         conn = pymysql.connect(**db_settings)
 		
