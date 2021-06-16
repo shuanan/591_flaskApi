@@ -58,13 +58,20 @@ def getRegion(self):
             cursor.execute(sql, val)
             result = cursor.fetchall()
 
+            areas_list = []
+            for r in result:
+                area_dict=dict()
+                area_dict["name"] = r[0]
+                area_dict["value"] = r[1]   
+                areas_list.append(area_dict)
+
             status ="success"
             if len(result) == 0 :
                 status = "error"
 
             result = {
                 "status":status,
-                "data": result
+                "data": areas_list
                 }
             return result
 
