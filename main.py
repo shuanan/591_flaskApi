@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import rentList as rl
+import sql
 
 app = Flask(__name__)
 CORS(app)
@@ -21,6 +22,20 @@ def findRent():
         }
 
     return jsonify(result)
+
+@app.route('/getsection', methods=['POST'])
+def findsection():
+    try:
+        result = sql.getSection(3)
+        
+    except Exception as e:
+        result = {
+            "status": "error",
+            "message": repr(e),
+        }
+
+    return jsonify(result)
+
     
 
 if __name__ == "__main__":
