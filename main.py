@@ -36,6 +36,19 @@ def findsection():
 
     return jsonify(result)
 
+@app.route('/getregion', methods=['POST'])
+def getregion():
+    try:
+        result = sql.getRegion(request.get_json())
+        
+    except Exception as e:
+        result = {
+            "status": "error",
+            "message": repr(e),
+        }
+
+    return jsonify(result)
+
     
 
 if __name__ == "__main__":
