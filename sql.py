@@ -12,9 +12,9 @@ db_settings = {
         "charset": "utf8"
     }
 
-def getSection(region):
+def getSection(request):
     try:
-        #region = request["region"]
+        region = request["region"]
 
         conn = pymysql.connect(**db_settings)
 	
